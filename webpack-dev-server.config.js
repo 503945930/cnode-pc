@@ -30,9 +30,11 @@ const config = {
     inline: true,
     port: 3000, //Port Number
     host: 'localhost', //Change to '0.0.0.0' for external facing server
+    historyApiFallback: true
   },
   devtool: 'eval',
   output: {
+    publicPath: "/",
     path: PATHS.build, //Path of output file
     filename: 'js/app.js', //Name of output file
   },
@@ -59,6 +61,15 @@ const config = {
       test: /\.jsx?$/, //All .js files
       loaders: ['react-hot', 'babel-loader'], //react-hot is like browser sync and babel loads jsx and es6-7
       exclude: [nodeModulesPath],
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loaders: [
+        'file?hash=sha512&digest=hex&name=[hash].[ext]',
+        'image-webpack'
+      ]
+    }, {
+      test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+      loader : 'file-loader'
     }]
   },
   //eslint config options. Part of the eslint-loader package

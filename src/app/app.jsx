@@ -1,5 +1,7 @@
-//import "../css/font-awesome.min.css"
-//import '../css/main.css'
+import '../css/main.css'
+import '../css/font-icons/style.css'
+
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -20,6 +22,6 @@ ReactDOM.render(
   <Provider store={store}>
   <div>
     <Router routes={routes} history={history} />
-    
+
   </div>
 </Provider>, document.getElementById('app'));

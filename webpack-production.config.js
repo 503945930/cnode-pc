@@ -30,7 +30,7 @@ const config = {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
     }, {
-      test: /\.jsx$/, // All .js files
+      test: /\.jsx?$/, // All .js files
       loaders: ['babel-loader'], //react-hot is like browser sync and babel loads jsx and es6-7
       exclude: [nodeModulesPath],
     }],

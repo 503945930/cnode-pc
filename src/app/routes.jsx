@@ -12,7 +12,9 @@ const  routes = {
   component: App,
   indexRoute: { component: AppChild },
   childRoutes: [
-    { path: 'topicadd', component: TopicAdd }
+    { path: 'topicadd', component: TopicAdd },
+    { path: 'usercollect/:username', component: UserCollect },
+    { path: 'usermessage', component: UserMessage },
   ]
 }
 

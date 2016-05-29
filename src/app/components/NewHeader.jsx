@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton  from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AddTopicBtn from './AddTopicBtn'; //发帖
-
 import UserProfile from './UserProfile'; //用户简介
 import Login from './Login';
 import TopicDetail from './TopicDetail'; //帖子详情
 import Message from './Message';
 import * as loginaction from '../actions/loginaction';
+import { Link } from 'react-router'
 
 class Header extends React.Component {
   constructor(props) {
@@ -58,7 +58,10 @@ class Header extends React.Component {
     const islogin = this.props.islogin;
     const leftPart = (
       <div style={styles.hTagWrapper}>
-        <img src="http://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" style={styles.nodeIcon}/>
+        <Link to="/">
+          <img src="../images/cnodejs_light.svg" style={styles.nodeIcon}/>
+        </Link>
+
       </div>
     );
     const rightPart = islogin
@@ -77,8 +80,8 @@ class Header extends React.Component {
       )
       : (
         <div>
-          <FlatButton label="登录" keyboardFocused={true} onTouchTap={this.openLogin} style={{
-            marginTop: '6px',
+          <RaisedButton primary={true} label="登录" onTouchTap={this.openLogin} style={{
+            marginTop: 6,
             float: 'left'
           }}/>
         </div>

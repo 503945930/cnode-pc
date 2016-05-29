@@ -17,8 +17,8 @@ class  TopicList extends React.Component {
   getStyles() {
         const styles = {
             wrapper: {
-                width: '1150px',
-                marginTop:'120px',
+                width: 1150,
+                marginTop:140,
                 marginLeft: 'auto',
                 marginRight: 'auto',
             },
