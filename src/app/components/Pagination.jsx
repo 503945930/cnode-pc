@@ -14,7 +14,7 @@ const rightPart = (
                     <IconButton
                         style={{marginTop:'-15px'}}
                         iconClassName="muidocs-icon-custom-github"
-                        href="https://github.com/wq123456/cnode-electron"
+                        href="https://github.com/503945930/cnode-pc"
                         linkButton={true}/>
                 </div>
 );
@@ -27,8 +27,9 @@ class Pagination extends React.Component {
         return {
             page: {
                 position: 'fixed',
-                right: '10px',
-                width: '80px',
+                top:164,
+                right: 10,
+                width: 80,
             },
         }
     }

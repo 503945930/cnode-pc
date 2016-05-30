@@ -26,7 +26,7 @@ class TopicCatNav extends React.Component {
     return (
       <div style={{
         width:'100%',
-        position: 'fixed',
+        position: 'absolute',
         top: 80,
         borderBottom:'#FFD740 1px solid'
       }}>

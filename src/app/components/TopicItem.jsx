@@ -19,7 +19,9 @@ import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
-
+import Badge from 'material-ui/Badge';
+import IconButton from 'material-ui/IconButton';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
 export default class TopicItem extends React.Component {
   constructor(props) {
@@ -60,9 +62,6 @@ export default class TopicItem extends React.Component {
       case 'ask':
         return '问答';
         break;
-      case 'good':
-        return '精华';
-        break;
       default:
         return '';
         break;
@@ -73,19 +72,27 @@ export default class TopicItem extends React.Component {
     const {topic} = this.props;
     const topcontent = topic.top
       ? '置顶'
-      : this.tabMap(topic.tab);
+      :(topic.good ? '精华' : this.tabMap(topic.tab));
     let lastreply = new moment(topic.last_reply_at).startOf('day').fromNow().replace('ago', '前').replace('hours', '小时').replace('days', '天');
-    let content = '(' + topic.reply_count + '/' + topic.visit_count + ') ' + topcontent;
-    let desc = '最近回复于' + lastreply + '(点击查看详情)';
+    let content = '(' + topic.reply_count + '/' + topic.visit_count + ')';
+    let desc = '最近回复于' + lastreply;
     let avatar = topic.author.avatar_url.replace(/^\/\//g, 'http://');
     return (
       <div>
         <List>
 
-          <ListItem leftAvatar={<Avatar src={avatar} />} primaryText={topic.title} secondaryText={content}
-            rightIcon={<CommunicationChatBubble />} onTouchTap={this.openDetail.bind(this,topic.id)}  />
-          <Divider inset={true} />
-      </List>
+          <ListItem leftAvatar={< Avatar src = {
+            avatar
+          } />} primaryText={topic.title + " " + content} secondaryText={desc}
+           rightIcon={
+            <Badge badgeContent = { topcontent } style={{top:0}} badgeStyle={{width:28,height:28,top: -5, right: 0}}
+           secondary = {true} >
+           <CommunicationChatBubble/>
+           </Badge>
+         }
+          onTouchTap={this.openDetail.bind(this, topic.id)}/>
+          <Divider inset={true}/>
+        </List>
 
       </div>
     )
